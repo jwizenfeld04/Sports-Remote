@@ -1,5 +1,10 @@
 # Sports Remote
 
+[![CI](https://github.com/jwizenfeld04/Sports-Remote/actions/workflows/ci.yml/badge.svg)](https://github.com/jwizenfeld04/Sports-Remote/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/jwizenfeld04/Sports-Remote/actions/workflows/codeql.yml/badge.svg)](https://github.com/jwizenfeld04/Sports-Remote/actions/workflows/codeql.yml)
+[![Release](https://img.shields.io/github/v/release/jwizenfeld04/Sports-Remote)](https://github.com/jwizenfeld04/Sports-Remote/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 **Find the game, see if you can watch it, and put it on your TV from your phone.**
 
 Sports Remote shows every live and upcoming NFL, NBA, MLB and NHL game. For each one it tells you whether your TV services carry it where you live. One tap opens the game on your Fire TV or Google TV in the right app.
@@ -110,7 +115,7 @@ The tests use a fake `adb` and a simulated TV, so you can work on everything, in
 
 ## Contributing and security
 
-Bug reports, service and rights corrections, and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). Please report security issues privately, as described in [SECURITY.md](SECURITY.md).
+Bug reports, service and rights corrections, and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md). Please report security issues privately, as described in [SECURITY.md](SECURITY.md).
 
 ## License
 

@@ -1,6 +1,6 @@
 {
   "name": "sports-remote",
-  "version": "0.2.0-dev",
+  "version": "0.2.0",
   "type": "module",
   "description": "Tap a live NFL, NBA, MLB or NHL game on your phone and it opens on your Fire TV or Google TV in the right app.",
   "engines": {

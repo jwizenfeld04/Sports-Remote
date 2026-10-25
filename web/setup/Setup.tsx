@@ -21,7 +21,7 @@ const STEPS: { id: StepId; title: string; lead: string }[] = [
   { id: "teams", title: "Your teams", lead: "Favorites go first, and you'll see how many of their games you can watch." },
   { id: "services", title: "Your services", lead: "Tick what you pay for. Coverage updates as you go, and shows what each service would add." },
   { id: "local", title: "Local teams", lead: "How you watch your local teams' games, which aren't on national TV." },
-  { id: "tvs", title: "Your TVs", lead: "Connect the Fire TV or Google TV this server will control." },
+  { id: "tvs", title: "Your TVs", lead: "Connect the TVs this server will control: Fire TV, Google TV or another Android TV." },
   { id: "extras", title: "Extras", lead: "Optional: Plex Live TV for antenna households, and ESPN game links." },
   { id: "done", title: "Done", lead: "Here's what you can watch." },
 ];

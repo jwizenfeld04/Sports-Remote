@@ -8,7 +8,7 @@ const serial = args[1];
 if (args[0] === "connect") console.log("already connected to " + args[1]);
 else if (args[0] === "devices") console.log(`List of devices attached\n${process.env.FAKE_ADB_SERIAL ?? "10.0.0.5:5555"}\tdevice\n10.0.0.7:5555\tdevice\n`);
 else if (args.includes("getprop")) console.log("[ro.product.manufacturer]: [Amazon]\n[ro.product.model]: [AFTKA]\n[ro.build.version.sdk]: [28]\n[ro.build.characteristics]: [tv]");
-else if (args.includes("pm") && args.includes("packages")) console.log("package:com.amazon.tv.launcher\npackage:com.espn.gtv\npackage:com.fox.one\npackage:com.amazon.firebat");
+else if (args.includes("pm") && args.includes("packages")) console.log("package:com.amazon.tv.launcher\npackage:com.amazon.firetv.youtube.tv\npackage:com.plexapp.android\npackage:com.hbo.hbonow\npackage:com.cbs.ott\npackage:com.bamnetworks.mobile.android.gameday.atbat\npackage:com.fox.foxone\npackage:com.espn.gtv\npackage:com.amazon.firebat\npackage:com.peacock.peacockfiretv\npackage:com.amazon.firetv.youtube");
 else if (args.includes("dumpsys") && args.includes("activities")) console.log(`  topResumedActivity=ActivityRecord{1 u0 ${process.env.FAKE_ADB_FG ?? "com.amazon.tv.launcher"}/.Main t1}`);
 else if (args.includes("dumpsys") && args.includes("power")) console.log("mWakefulness=Awake");
 else if (args.includes("am")) console.log("Starting: Intent {}\nStatus: ok");

@@ -8,6 +8,8 @@ Sports Remote controls your TV over **ADB**, the debugging connection built into
 - [Devices that can't be used](#devices-that-cant-be-used)
 - [Troubleshooting](#troubleshooting)
 
+![Adding a TV in the setup wizard](images/setup-tvs.png)
+
 Before you start, give the TV a fixed address: in your router's settings, reserve its current IP address (often called a "DHCP reservation"). Otherwise the address can change and Sports Remote loses the TV.
 
 ## Fire TV

@@ -23,7 +23,7 @@ import { lanPrefixes, scanForAdb } from "./tv/discovery";
 import { browseAdb } from "./tv/mdns";
 import { APPS } from "../lib/catalog/apps";
 
-export const VERSION = "0.2.0-dev";
+export const VERSION = "0.2.0";
 
 export interface Integrations {
   /** Re-read Plex/ESPN settings after they change. */

@@ -110,7 +110,7 @@ export const SUBSCRIPTIONS: SubscriptionDef[] = [
     addOns: [{ id: "sports_extra", name: "Sports Extra", grants: ["espnu", "secn", "accn", "fs2", "btn", "nbatv", "mlbnet", "nhlnet"], maybe: ["nfl_redzone"] }],
     apps: ["sling"],
     unlocks: [{ subscription: "espn", tier: "unlimited", app: "espn", maybeOnly: true }],
-    blurb: "Cheapest way to ESPN and TNT. No CBS anywhere, and ABC/FOX/NBC only in some markets.",
+    blurb: "ESPN and TNT without a full cable-style bundle. No CBS anywhere, and ABC/FOX/NBC only in some markets.",
     confidence: "medium",
   },
   {

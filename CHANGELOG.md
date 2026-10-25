@@ -5,7 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-The 0.2 line turns a single-household tool into a general open-source app. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Work in progress:
+## [0.2.0] - 2026-10-25
+
+The first public release. The 0.2 line turns a single-household tool into a general open-source app. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ### Added
 
@@ -53,3 +55,6 @@ The 0.2 line turns a single-household tool into a general open-source app. See [
 - First version, for one household: Fire TV over ADB; NFL, MLB and NHL from ESPN; YouTube TV, Plex, Prime Video and other services; Tailscale or passcode access; systemd install.
 
 [Unreleased]: https://github.com/jwizenfeld04/Sports-Remote/commits/main
+
+[Unreleased]: https://github.com/jwizenfeld04/Sports-Remote/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/jwizenfeld04/Sports-Remote/releases/tag/v0.2.0
