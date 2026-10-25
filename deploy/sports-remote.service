@@ -1,0 +1,55 @@
+[Unit]
+Description=Sports Remote (open live games on a Fire TV / Google TV)
+Documentation=https://github.com/jwizenfeld04/Sports-Remote/blob/main/docs/hosting.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sportsremote
+Group=sportsremote
+WorkingDirectory=/opt/sports-remote
+# Bootstrap settings only (PORT, BIND, TRUSTED_PROXIES, ...). Everything else is set in the app
+# and saved in DATA_DIR. The leading "-" makes the file optional.
+EnvironmentFile=-/etc/sports-remote/env
+Environment=NODE_ENV=production
+Environment=DATA_DIR=/var/lib/sports-remote
+Environment=STATIC_DIR=/opt/sports-remote/dist/web
+# adb keeps its key in $HOME/.android, so HOME must be the (persistent, private) data dir.
+Environment=HOME=/var/lib/sports-remote
+ExecStart=/usr/bin/node --enable-source-maps /opt/sports-remote/dist/server/main.mjs
+Restart=on-failure
+RestartSec=3
+# 78 = bad or newer config file: restarting won't fix it, so stop and let the log say why.
+RestartPreventExitStatus=78
+# The app closes its listeners and exits within ~8 s of SIGTERM (server/shutdown.ts).
+KillSignal=SIGTERM
+TimeoutStopSec=15
+
+# Hardening: the app only needs its data dir and outbound network (ADB to the TV, ESPN, Plex).
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+RestrictNamespaces=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+LockPersonality=true
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+AmbientCapabilities=
+UMask=0077
+ReadWritePaths=/var/lib/sports-remote
+StateDirectory=sports-remote
+StateDirectoryMode=0700
+
+[Install]
+WantedBy=multi-user.target

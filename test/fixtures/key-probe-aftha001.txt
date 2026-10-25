@@ -1,0 +1,464 @@
+@elf  01
+@print  41 00 42
+@cmd No shell command implementation.
+@dev /dev/input/event1 1 /vendor/usr/keylayout/Vendor_3697_Product_0002.kl
+@caps /dev/input/event1 add device 1: /dev/input/event1
+@caps /dev/input/event1   name:     "MTK TV KEYPAD"
+@caps /dev/input/event1   events:
+@caps /dev/input/event1     KEY (0001): 0074 
+@caps /dev/input/event1   input props:
+@caps /dev/input/event1     <none>
+@dev /dev/input/event0 1 /vendor/usr/keylayout/Vendor_3697_Product_0001.kl
+@caps /dev/input/event0 add device 1: /dev/input/event0
+@caps /dev/input/event0   name:     "MStar Smart TV IR Receiver"
+@caps /dev/input/event0   events:
+@caps /dev/input/event0     KEY (0001): 0001  0002  0003  0004  0005  0006  0007  0008 
+@caps /dev/input/event0                 0009  000a  000b  000c  000d  000e  000f  0010 
+@caps /dev/input/event0                 0011  0012  0013  0014  0015  0016  0017  0018 
+@caps /dev/input/event0                 0019  001a  001b  001c  001d  001e  001f  0020 
+@caps /dev/input/event0                 0021  0022  0023  0024  0025  0026  0027  0028 
+@caps /dev/input/event0                 0029  002a  002b  002c  002d  002e  002f  0030 
+@caps /dev/input/event0                 0031  0032  0033  0034  0035  0036  0037  0038 
+@caps /dev/input/event0                 0039  003a  003b  003c  003d  003e  003f  0040 
+@caps /dev/input/event0                 0041  0042  0043  0044  0045  0046  0047  0048 
+@caps /dev/input/event0                 0049  004a  004b  004c  004d  004e  004f  0050 
+@caps /dev/input/event0                 0051  0052  0053  0054  0055  0056  0057  0058 
+@caps /dev/input/event0                 0059  005a  005b  005c  005d  005e  005f  0060 
+@caps /dev/input/event0                 0061  0062  0063  0064  0065  0066  0067  0068 
+@caps /dev/input/event0                 0069  006a  006b  006c  006d  006e  006f  0070 
+@caps /dev/input/event0                 0071  0072  0073  0074  0075  0076  0077  0078 
+@caps /dev/input/event0                 0079  007a  007b  007c  007d  007e  007f  0080 
+@caps /dev/input/event0                 0081  0082  0083  0084  0085  0086  0087  0088 
+@caps /dev/input/event0                 0089  008a  008b  008c  008d  008e  008f  0090 
+@caps /dev/input/event0                 0091  0092  0093  0094  0095  0096  0097  0098 
+@caps /dev/input/event0                 0099  009a  009b  009c  009d  009e  009f  00a0 
+@caps /dev/input/event0                 00a1  00a2  00a3  00a4  00a5  00a6  00a7  00a8 
+@caps /dev/input/event0                 00a9  00aa  00ab  00ac  00ad  00ae  00af  00b0 
+@caps /dev/input/event0                 00b1  00b2  00b3  00b4  00b5  00b6  00b7  00b8 
+@caps /dev/input/event0                 00b9  00ba  00bb  00bc  00bd  00be  00bf  00c0 
+@caps /dev/input/event0                 00c1  00c2  00c3  00c4  00c5  00c6  00c7  00c8 
+@caps /dev/input/event0                 00c9  00ca  00cb  00cc  00cd  00ce  00cf  00d0 
+@caps /dev/input/event0                 00d1  00d2  00d3  00d4  00d5  00d6  00d7  00d8 
+@caps /dev/input/event0                 00d9  00da  00db  00dc  00dd  00de  00df  00e0 
+@caps /dev/input/event0                 00e1  00e2  00e3  00e4  00e5  00e6  00e7  00e8 
+@caps /dev/input/event0                 00e9  00ea  00eb  00ec  00ed  00ee  00ef  00f0 
+@caps /dev/input/event0                 00f1  00f2  00f3  00f4  00f5  00f6  00f7  00f8 
+@caps /dev/input/event0                 00f9  00fa  00fb  00fc  00fd  00fe  00ff  0100 
+@caps /dev/input/event0                 0101  0102  0103  0104  0105  0106  0107  0108 
+@caps /dev/input/event0                 0109  010a  010b  010c  010d  010e  010f  0110 
+@caps /dev/input/event0                 0111  0112  0113  0114  0115  0116  0117  0118 
+@caps /dev/input/event0                 0119  011a  011b  011c  011d  011e  011f  0120 
+@caps /dev/input/event0                 0121  0122  0123  0124  0125  0126  0127  0128 
+@caps /dev/input/event0                 0129  012a  012b  012c  012d  012e  012f  0130 
+@caps /dev/input/event0                 0131  0132  0133  0134  0135  0136  0137  0138 
+@caps /dev/input/event0                 0139  013a  013b  013c  013d  013e  013f  0140 
+@caps /dev/input/event0                 0141  0142  0143  0144  0145  0146  0147  0148 
+@caps /dev/input/event0                 0149  014b  014c  014d  014e  014f  0150  0151 
+@caps /dev/input/event0                 0152  0153  0154  0155  0156  0157  0158  0159 
+@caps /dev/input/event0                 015a  015b  015c  015d  015e  015f  0160  0161 
+@caps /dev/input/event0                 0162  0163  0164  0165  0166  0167  0168  0169 
+@caps /dev/input/event0                 016a  016b  016c  016d  016e  016f  0170  0171 
+@caps /dev/input/event0                 0172  0173  0174  0175  0176  0177  0178  0179 
+@caps /dev/input/event0                 017a  017b  017c  017d  017e  017f  0180  0181 
+@caps /dev/input/event0                 0182  0183  0184  0185  0186  0187  0188  0189 
+@caps /dev/input/event0                 018a  018b  018c  018d  018e  018f  0190  0191 
+@caps /dev/input/event0                 0192  0193  0194  0195  0196  0197  0198  0199 
+@caps /dev/input/event0                 019a  019b  019c  019d  019e  019f  01a0  01a1 
+@caps /dev/input/event0                 01a2  01a3  01a4  01a5  01a6  01a7  01a8  01a9 
+@caps /dev/input/event0                 01aa  01ab  01ac  01ad  01ae  01af  01b0  01b1 
+@caps /dev/input/event0                 01b2  01b3  01b4  01b5  01b6  01b7  01b8  01b9 
+@caps /dev/input/event0                 01ba  01bb  01bc  01bd  01be  01bf  01c0  01c1 
+@caps /dev/input/event0                 01c2  01c3  01c4  01c5  01c6  01c7  01c8  01c9 
+@caps /dev/input/event0                 01ca  01cb  01cc  01cd  01ce  01cf  01d0  01d1 
+@caps /dev/input/event0                 01d2  01d3  01d4  01d5  01d6  01d7  01d8  01d9 
+@caps /dev/input/event0                 01da  01db  01dc  01dd  01de  01df  01e0  01e1 
+@caps /dev/input/event0                 01e2  01e3  01e4  01e5  01e6  01e7  01e8  01e9 
+@caps /dev/input/event0                 01ea  01eb  01ec  01ed  01ee  01ef  01f0  01f1 
+@caps /dev/input/event0                 01f2  01f3  01f4  01f5  01f6  01f7  01f8  01f9 
+@caps /dev/input/event0                 01fa  01fb  01fc  01fd  01fe  01ff  0200  0201 
+@caps /dev/input/event0                 0202  0203  0204  0205  0206  0207  0208  0209 
+@caps /dev/input/event0                 020a  020b  020c  020d  020e  020f  0210  0211 
+@caps /dev/input/event0                 0212  0213  0214  0215  0216  0217  0218  0219 
+@caps /dev/input/event0                 021a  021b  021c  021d  021e  021f  0220  0221 
+@caps /dev/input/event0                 0222  0223  0224  0225  0226  0227  0228  0229 
+@caps /dev/input/event0                 022a  022b  022c  022d  022e  022f  0230  0231 
+@caps /dev/input/event0                 0232  0233  0234  0235  0236  0237  0238  0239 
+@caps /dev/input/event0                 023a  023b  023c  023d  023e  023f  0240  0241 
+@caps /dev/input/event0                 0242  0243  0244  0245  0246  0247  0248  0249 
+@caps /dev/input/event0                 024a  024b  024c  024d  024e  024f  0250  0251 
+@caps /dev/input/event0                 0252  0253  0254  0255  0256  0257  0258  0259 
+@caps /dev/input/event0                 025a  025b  025c  025d  025e  025f  0260  0261 
+@caps /dev/input/event0                 0262  0263  0264  0265  0266  0267  0268  0269 
+@caps /dev/input/event0                 026a  026b  026c  026d  026e  026f  0270  0271 
+@caps /dev/input/event0                 0272  0273  0274  0275  0276  0277  0278  0279 
+@caps /dev/input/event0                 027a  027b  027c  027d  027e  027f  0280  0281 
+@caps /dev/input/event0                 0282  0283  0284  0285  0286  0287  0288  0289 
+@caps /dev/input/event0                 028a  028b  028c  028d  028e  028f  0290  0291 
+@caps /dev/input/event0                 0292  0293  0294  0295  0296  0297  0298  0299 
+@caps /dev/input/event0                 029a  029b  029c  029d  029e  029f  02a0  02a1 
+@caps /dev/input/event0                 02a2  02a3  02a4  02a5  02a6  02a7  02a8  02a9 
+@caps /dev/input/event0                 02aa  02ab  02ac  02ad  02ae  02af  02b0  02b1 
+@caps /dev/input/event0                 02b2  02b3  02b4  02b5  02b6  02b7  02b8  02b9 
+@caps /dev/input/event0                 02ba  02bb  02bc  02bd  02be  02bf  02c0  02c1 
+@caps /dev/input/event0                 02c2  02c3  02c4  02c5  02c6  02c7  02c8  02c9 
+@caps /dev/input/event0                 02ca  02cb  02cc  02cd  02ce  02cf  02d0  02d1 
+@caps /dev/input/event0                 02d2  02d3  02d4  02d5  02d6  02d7  02d8  02d9 
+@caps /dev/input/event0                 02da  02db  02dc  02dd  02de  02df  02e0  02e1 
+@caps /dev/input/event0                 02e2  02e3  02e4  02e5  02e6  02e7  02e8  02e9 
+@caps /dev/input/event0                 02ea  02eb  02ec  02ed  02ee  02ef  02f0  02f1 
+@caps /dev/input/event0                 02f2  02f3  02f4  02f5  02f6  02f7  02f8  02f9 
+@caps /dev/input/event0                 02fa  02fb  02fc  02fd  02fe  02ff 
+@caps /dev/input/event0     MSC (0004): 0004 
+@caps /dev/input/event0   input props:
+@caps /dev/input/event0     <none>
+@dev /dev/input/event2 1 
+@dev /dev/input/event3 1 
+@dev /dev/input/event4 1 /system/usr/keylayout/amzkeyboard.kl
+@kl /dev/input/event4 key 1     ESCAPE
+@kl /dev/input/event4 key 2     1
+@kl /dev/input/event4 key 3     2
+@kl /dev/input/event4 key 4     3
+@kl /dev/input/event4 key 5     4
+@kl /dev/input/event4 key 6     5
+@kl /dev/input/event4 key 7     6
+@kl /dev/input/event4 key 8     7
+@kl /dev/input/event4 key 9     8
+@kl /dev/input/event4 key 10    9
+@kl /dev/input/event4 key 11    0
+@kl /dev/input/event4 key 12    MINUS
+@kl /dev/input/event4 key 13    EQUALS
+@kl /dev/input/event4 key 14    DEL
+@kl /dev/input/event4 key 15    TAB
+@kl /dev/input/event4 key 16    Q
+@kl /dev/input/event4 key 17    W
+@kl /dev/input/event4 key 18    E
+@kl /dev/input/event4 key 19    R
+@kl /dev/input/event4 key 20    T
+@kl /dev/input/event4 key 21    Y
+@kl /dev/input/event4 key 22    U
+@kl /dev/input/event4 key 23    I
+@kl /dev/input/event4 key 24    O
+@kl /dev/input/event4 key 25    P
+@kl /dev/input/event4 key 26    LEFT_BRACKET
+@kl /dev/input/event4 key 27    RIGHT_BRACKET
+@kl /dev/input/event4 key 28    ENTER
+@kl /dev/input/event4 key 29    CTRL_LEFT
+@kl /dev/input/event4 key 30    A
+@kl /dev/input/event4 key 31    S
+@kl /dev/input/event4 key 32    D
+@kl /dev/input/event4 key 33    F
+@kl /dev/input/event4 key 34    G
+@kl /dev/input/event4 key 35    H
+@kl /dev/input/event4 key 36    J
+@kl /dev/input/event4 key 37    K
+@kl /dev/input/event4 key 38    L
+@kl /dev/input/event4 key 39    SEMICOLON
+@kl /dev/input/event4 key 40    APOSTROPHE
+@kl /dev/input/event4 key 41    GRAVE
+@kl /dev/input/event4 key 42    SHIFT_LEFT
+@kl /dev/input/event4 key 43    BACKSLASH
+@kl /dev/input/event4 key 44    Z
+@kl /dev/input/event4 key 45    X
+@kl /dev/input/event4 key 46    C
+@kl /dev/input/event4 key 47    V
+@kl /dev/input/event4 key 48    B
+@kl /dev/input/event4 key 49    N
+@kl /dev/input/event4 key 50    M
+@kl /dev/input/event4 key 51    COMMA
+@kl /dev/input/event4 key 52    PERIOD
+@kl /dev/input/event4 key 53    SLASH
+@kl /dev/input/event4 key 54    SHIFT_RIGHT
+@kl /dev/input/event4 key 55    NUMPAD_MULTIPLY
+@kl /dev/input/event4 key 56    ALT_LEFT
+@kl /dev/input/event4 key 57    SPACE
+@kl /dev/input/event4 key 58    CAPS_LOCK
+@kl /dev/input/event4 key 59    F1
+@kl /dev/input/event4 key 60    F2
+@kl /dev/input/event4 key 61    F3
+@kl /dev/input/event4 key 62    F4
+@kl /dev/input/event4 key 63    F5
+@kl /dev/input/event4 key 64    F6
+@kl /dev/input/event4 key 65    F7
+@kl /dev/input/event4 key 66    F8
+@kl /dev/input/event4 key 67    F9
+@kl /dev/input/event4 key 68    F10
+@kl /dev/input/event4 key 69    NUM_LOCK
+@kl /dev/input/event4 key 70    SCROLL_LOCK
+@kl /dev/input/event4 key 71    NUMPAD_7
+@kl /dev/input/event4 key 72    NUMPAD_8
+@kl /dev/input/event4 key 73    NUMPAD_9
+@kl /dev/input/event4 key 74    NUMPAD_SUBTRACT
+@kl /dev/input/event4 key 75    NUMPAD_4
+@kl /dev/input/event4 key 76    NUMPAD_5
+@kl /dev/input/event4 key 77    NUMPAD_6
+@kl /dev/input/event4 key 78    NUMPAD_ADD
+@kl /dev/input/event4 key 79    NUMPAD_1
+@kl /dev/input/event4 key 80    NUMPAD_2
+@kl /dev/input/event4 key 81    NUMPAD_3
+@kl /dev/input/event4 key 82    NUMPAD_0
+@kl /dev/input/event4 key 83    NUMPAD_DOT
+@kl /dev/input/event4 key 85    ZENKAKU_HANKAKU
+@kl /dev/input/event4 key 86    BACKSLASH
+@kl /dev/input/event4 key 87    F11
+@kl /dev/input/event4 key 88    F12
+@kl /dev/input/event4 key 89    RO
+@kl /dev/input/event4 key 92    HENKAN
+@kl /dev/input/event4 key 93    KATAKANA_HIRAGANA
+@kl /dev/input/event4 key 94    MUHENKAN
+@kl /dev/input/event4 key 95    NUMPAD_COMMA
+@kl /dev/input/event4 key 96    DPAD_CENTER
+@kl /dev/input/event4 key 97    CTRL_RIGHT
+@kl /dev/input/event4 key 98    NUMPAD_DIVIDE
+@kl /dev/input/event4 key 99    SYSRQ
+@kl /dev/input/event4 key 100   ALT_RIGHT
+@kl /dev/input/event4 key 102   MOVE_HOME
+@kl /dev/input/event4 key 103   DPAD_UP
+@kl /dev/input/event4 key 104   PAGE_UP
+@kl /dev/input/event4 key 105   DPAD_LEFT
+@kl /dev/input/event4 key 106   DPAD_RIGHT
+@kl /dev/input/event4 key 107   MOVE_END
+@kl /dev/input/event4 key 108   DPAD_DOWN
+@kl /dev/input/event4 key 109   PAGE_DOWN
+@kl /dev/input/event4 key 110   INSERT
+@kl /dev/input/event4 key 111   FORWARD_DEL
+@kl /dev/input/event4 key 113   VOLUME_MUTE
+@kl /dev/input/event4 key 114   VOLUME_DOWN
+@kl /dev/input/event4 key 115   VOLUME_UP
+@kl /dev/input/event4 key 116   POWER
+@kl /dev/input/event4 key 117   NUMPAD_EQUALS
+@kl /dev/input/event4 key 119   BREAK
+@kl /dev/input/event4 key 121   NUMPAD_COMMA
+@kl /dev/input/event4 key 122   KANA
+@kl /dev/input/event4 key 123   EISU
+@kl /dev/input/event4 key 124   YEN
+@kl /dev/input/event4 key 125   META_LEFT
+@kl /dev/input/event4 key 126   META_RIGHT
+@kl /dev/input/event4 key 127   MENU
+@kl /dev/input/event4 key 128   MEDIA_STOP
+@kl /dev/input/event4 key 138   HELP
+@kl /dev/input/event4 key 139   MENU
+@kl /dev/input/event4 key 140   CALCULATOR
+@kl /dev/input/event4 key 142   SLEEP
+@kl /dev/input/event4 key 143   WAKEUP
+@kl /dev/input/event4 key 150   EXPLORER
+@kl /dev/input/event4 key 152   POWER
+@kl /dev/input/event4 key 155   ENVELOPE
+@kl /dev/input/event4 key 156   BOOKMARK
+@kl /dev/input/event4 key 158   BACK
+@kl /dev/input/event4 key 159   FORWARD
+@kl /dev/input/event4 key 160   MEDIA_CLOSE
+@kl /dev/input/event4 key 161   MEDIA_EJECT
+@kl /dev/input/event4 key 162   MEDIA_EJECT
+@kl /dev/input/event4 key 163   MEDIA_NEXT
+@kl /dev/input/event4 key 164   MEDIA_PLAY_PAUSE
+@kl /dev/input/event4 key 165   MEDIA_PREVIOUS
+@kl /dev/input/event4 key 166   MEDIA_STOP
+@kl /dev/input/event4 key 167   MEDIA_RECORD
+@kl /dev/input/event4 key 168   MEDIA_REWIND
+@kl /dev/input/event4 key 169   CALL
+@kl /dev/input/event4 key 171   MUSIC
+@kl /dev/input/event4 key 172   HOME
+@kl /dev/input/event4 key 174   APP_SWITCH
+@kl /dev/input/event4 key 175   NOTIFICATION
+@kl /dev/input/event4 key 177   PAGE_UP
+@kl /dev/input/event4 key 178   PAGE_DOWN
+@kl /dev/input/event4 key 179   NUMPAD_LEFT_PAREN
+@kl /dev/input/event4 key 180   NUMPAD_RIGHT_PAREN
+@kl /dev/input/event4 key 200   MEDIA_PLAY
+@kl /dev/input/event4 key 201   MEDIA_PAUSE
+@kl /dev/input/event4 key 207   MEDIA_PLAY
+@kl /dev/input/event4 key 208   MEDIA_FAST_FORWARD
+@kl /dev/input/event4 key 212   CAMERA
+@kl /dev/input/event4 key 213   MUSIC
+@kl /dev/input/event4 key 215   ENVELOPE
+@kl /dev/input/event4 key 217   ALEXA
+@kl /dev/input/event4 key 224   BRIGHTNESS_DOWN
+@kl /dev/input/event4 key 225   BRIGHTNESS_UP
+@kl /dev/input/event4 key 226   HEADSETHOOK
+@kl /dev/input/event4 key 256   BUTTON_1
+@kl /dev/input/event4 key 257   BUTTON_2
+@kl /dev/input/event4 key 258   BUTTON_3
+@kl /dev/input/event4 key 259   BUTTON_4
+@kl /dev/input/event4 key 260   BUTTON_5
+@kl /dev/input/event4 key 261   BUTTON_6
+@kl /dev/input/event4 key 262   BUTTON_7
+@kl /dev/input/event4 key 263   BUTTON_8
+@kl /dev/input/event4 key 264   BUTTON_9
+@kl /dev/input/event4 key 265   BUTTON_10
+@kl /dev/input/event4 key 266   BUTTON_11
+@kl /dev/input/event4 key 267   BUTTON_12
+@kl /dev/input/event4 key 268   BUTTON_13
+@kl /dev/input/event4 key 269   BUTTON_14
+@kl /dev/input/event4 key 270   BUTTON_15
+@kl /dev/input/event4 key 271   BUTTON_16
+@kl /dev/input/event4 key 288   BUTTON_1
+@kl /dev/input/event4 key 289   BUTTON_2
+@kl /dev/input/event4 key 290   BUTTON_3
+@kl /dev/input/event4 key 291   BUTTON_4
+@kl /dev/input/event4 key 292   BUTTON_5
+@kl /dev/input/event4 key 293   BUTTON_6
+@kl /dev/input/event4 key 294   BUTTON_7
+@kl /dev/input/event4 key 295   BUTTON_8
+@kl /dev/input/event4 key 296   BUTTON_9
+@kl /dev/input/event4 key 297   BUTTON_10
+@kl /dev/input/event4 key 298   BUTTON_11
+@kl /dev/input/event4 key 299   BUTTON_12
+@kl /dev/input/event4 key 300   BUTTON_13
+@kl /dev/input/event4 key 301   BUTTON_14
+@kl /dev/input/event4 key 302   BUTTON_15
+@kl /dev/input/event4 key 303   BUTTON_16
+@kl /dev/input/event4 key 304   BUTTON_A
+@kl /dev/input/event4 key 305   BUTTON_B
+@kl /dev/input/event4 key 306   BUTTON_C
+@kl /dev/input/event4 key 307   BUTTON_X
+@kl /dev/input/event4 key 308   BUTTON_Y
+@kl /dev/input/event4 key 309   BUTTON_Z
+@kl /dev/input/event4 key 310   BUTTON_L1
+@kl /dev/input/event4 key 311   BUTTON_R1
+@kl /dev/input/event4 key 312   BUTTON_L2
+@kl /dev/input/event4 key 313   BUTTON_R2
+@kl /dev/input/event4 key 314   BUTTON_SELECT
+@kl /dev/input/event4 key 315   BUTTON_START
+@kl /dev/input/event4 key 316   BUTTON_MODE
+@kl /dev/input/event4 key 317   BUTTON_THUMBL
+@kl /dev/input/event4 key 318   BUTTON_THUMBR
+@kl /dev/input/event4 key 353   DPAD_CENTER
+@kl /dev/input/event4 key 362   GUIDE
+@kl /dev/input/event4 key 366   DVR
+@kl /dev/input/event4 key 377   TV
+@kl /dev/input/event4 key 397   CALENDAR
+@kl /dev/input/event4 key 402   CHANNEL_UP
+@kl /dev/input/event4 key 403   CHANNEL_DOWN
+@kl /dev/input/event4 key 429   CONTACTS
+@kl /dev/input/event4 key 464   FUNCTION
+@kl /dev/input/event4 key 465   ESCAPE            FUNCTION
+@kl /dev/input/event4 key 466   F1                FUNCTION
+@kl /dev/input/event4 key 467   F2                FUNCTION
+@kl /dev/input/event4 key 468   F3                FUNCTION
+@kl /dev/input/event4 key 469   F4                FUNCTION
+@kl /dev/input/event4 key 470   F5                FUNCTION
+@kl /dev/input/event4 key 471   F6                FUNCTION
+@kl /dev/input/event4 key 472   F7                FUNCTION
+@kl /dev/input/event4 key 473   F8                FUNCTION
+@kl /dev/input/event4 key 474   F9                FUNCTION
+@kl /dev/input/event4 key 475   F10               FUNCTION
+@kl /dev/input/event4 key 476   F11               FUNCTION
+@kl /dev/input/event4 key 477   F12               FUNCTION
+@kl /dev/input/event4 key 478   1                 FUNCTION
+@kl /dev/input/event4 key 479   2                 FUNCTION
+@kl /dev/input/event4 key 480   D                 FUNCTION
+@kl /dev/input/event4 key 481   E                 FUNCTION
+@kl /dev/input/event4 key 482   F                 FUNCTION
+@kl /dev/input/event4 key 483   S                 FUNCTION
+@kl /dev/input/event4 key 484   B                 FUNCTION
+@kl /dev/input/event4 key 580   APP_SWITCH
+@kl /dev/input/event4 key 582   VOICE_ASSIST
+@caps /dev/input/event4 add device 1: /dev/input/event4
+@caps /dev/input/event4   name:     "amzkeyboard"
+@caps /dev/input/event4   events:
+@caps /dev/input/event4     KEY (0001): 0001  0002  0003  0004  0005  0006  0007  0008 
+@caps /dev/input/event4                 0009  000a  000b  000c  000d  000e  000f  0010 
+@caps /dev/input/event4                 0011  0012  0013  0014  0015  0016  0017  0018 
+@caps /dev/input/event4                 0019  001a  001b  001c  001d  001e  001f  0020 
+@caps /dev/input/event4                 0021  0022  0023  0024  0025  0026  0027  0028 
+@caps /dev/input/event4                 0029  002a  002b  002c  002d  002e  002f  0030 
+@caps /dev/input/event4                 0031  0032  0033  0034  0035  0036  0037  0038 
+@caps /dev/input/event4                 0039  003a  003b  003c  003d  003e  003f  0040 
+@caps /dev/input/event4                 0041  0042  0043  0044  0045  0046  0047  0048 
+@caps /dev/input/event4                 0049  004a  004b  004c  004d  004e  004f  0050 
+@caps /dev/input/event4                 0051  0052  0053  0054  0055  0056  0057  0058 
+@caps /dev/input/event4                 0059  005a  005b  005c  005d  005e  005f  0060 
+@caps /dev/input/event4                 0061  0062  0063  0064  0065  0066  0067  0068 
+@caps /dev/input/event4                 0069  006a  006b  006c  006d  006e  006f  0070 
+@caps /dev/input/event4                 0071  0072  0073  0074  0075  0076  0077  0078 
+@caps /dev/input/event4                 0079  007a  007b  007c  007d  007e  007f  0080 
+@caps /dev/input/event4                 0081  0082  0083  0084  0085  0086  0087  0088 
+@caps /dev/input/event4                 0089  008a  008b  008c  008d  008e  008f  0090 
+@caps /dev/input/event4                 0091  0092  0093  0094  0095  0096  0097  0098 
+@caps /dev/input/event4                 0099  009a  009b  009c  009d  009e  009f  00a0 
+@caps /dev/input/event4                 00a1  00a2  00a3  00a4  00a5  00a6  00a7  00a8 
+@caps /dev/input/event4                 00a9  00aa  00ab  00ac  00ad  00ae  00af  00b0 
+@caps /dev/input/event4                 00b1  00b2  00b3  00b4  00b5  00b6  00b7  00b8 
+@caps /dev/input/event4                 00b9  00ba  00bb  00bc  00bd  00be  00bf  00c0 
+@caps /dev/input/event4                 00c1  00c2  00c3  00c4  00c5  00c6  00c7  00c8 
+@caps /dev/input/event4                 00c9  00ca  00cb  00cc  00cd  00ce  00cf  00d0 
+@caps /dev/input/event4                 00d1  00d2  00d3  00d4  00d5  00d6  00d7  00d8 
+@caps /dev/input/event4                 00d9  00da  00db  00dc  00dd  00de  00df  00e0 
+@caps /dev/input/event4                 00e1  00e2  00e3  00e4  00e5  00e6  00e7  00e8 
+@caps /dev/input/event4                 00e9  00ea  00eb  00ec  00ed  00ee  00ef  00f0 
+@caps /dev/input/event4                 00f1  00f2  00f3  00f4  00f5  00f6  00f7  00f8 
+@caps /dev/input/event4                 00f9  00fa  00fb  00fc  0161  0192  0193 
+@caps /dev/input/event4   input props:
+@caps /dev/input/event4     <none>
+@dev /dev/input/event5 1 /system/usr/keylayout/Vendor_0171_Product_0424.kl
+@kl /dev/input/event5 key 116   POWER
+@kl /dev/input/event5 key 217   ALEXA
+@kl /dev/input/event5 key 96    DPAD_CENTER
+@kl /dev/input/event5 key 103   DPAD_UP
+@kl /dev/input/event5 key 105   DPAD_LEFT
+@kl /dev/input/event5 key 106   DPAD_RIGHT
+@kl /dev/input/event5 key 108   DPAD_DOWN
+@kl /dev/input/event5 key 172   HOME
+@kl /dev/input/event5 key 158   BACK
+@kl /dev/input/event5 key 139   MENU
+@kl /dev/input/event5 key 168   MEDIA_REWIND
+@kl /dev/input/event5 key 208   MEDIA_FAST_FORWARD
+@kl /dev/input/event5 key 164   MEDIA_PLAY_PAUSE
+@kl /dev/input/event5 key 113   VOLUME_MUTE
+@kl /dev/input/event5 key 114   VOLUME_DOWN
+@kl /dev/input/event5 key 115   VOLUME_UP
+@kl /dev/input/event5 key 362   LIVE_TV
+@kl /dev/input/event5 key 402   CHANNEL_UP
+@kl /dev/input/event5 key 403   CHANNEL_DOWN
+@kl /dev/input/event5 key 748   RECENTS
+@kl /dev/input/event5 key 249   SETTINGS
+@kl /dev/input/event5 key 744   APP_1
+@kl /dev/input/event5 key 745   APP_2
+@kl /dev/input/event5 key 746   APP_3
+@kl /dev/input/event5 key 747   APP_4
+@kl /dev/input/event5 key 398   PROG_RED
+@kl /dev/input/event5 key 399   PROG_GREEN
+@kl /dev/input/event5 key 400   PROG_YELLOW
+@kl /dev/input/event5 key 401   PROG_BLUE
+@caps /dev/input/event5 add device 1: /dev/input/event5
+@caps /dev/input/event5   name:     "Amazon Fire TV Remote"
+@caps /dev/input/event5   events:
+@caps /dev/input/event5     KEY (0001): 0001  0002  0003  0004  0005  0006  0007  0008 
+@caps /dev/input/event5                 0009  000a  000b  000c  000d  000e  000f  0010 
+@caps /dev/input/event5                 0011  0012  0013  0014  0015  0016  0017  0018 
+@caps /dev/input/event5                 0019  001a  001b  001c  001d  001e  001f  0020 
+@caps /dev/input/event5                 0021  0022  0023  0024  0025  0026  0027  0028 
+@caps /dev/input/event5                 0029  002a  002b  002c  002d  002e  002f  0030 
+@caps /dev/input/event5                 0031  0032  0033  0034  0035  0036  0037  0038 
+@caps /dev/input/event5                 0039  003a  003b  003c  003d  003e  003f  0040 
+@caps /dev/input/event5                 0041  0042  0043  0044  0045  0046  0047  0048 
+@caps /dev/input/event5                 0049  004a  004b  004c  004d  004e  004f  0050 
+@caps /dev/input/event5                 0051  0052  0053  0055  0056  0057  0058  0059 
+@caps /dev/input/event5                 005a  005b  005c  005d  005e  005f  0060  0061 
+@caps /dev/input/event5                 0062  0063  0064  0066  0067  0068  0069  006a 
+@caps /dev/input/event5                 006b  006c  006d  006e  006f  0071  0072  0073 
+@caps /dev/input/event5                 0074  0075  0077  0079  007a  007b  007c  007d 
+@caps /dev/input/event5                 007e  007f  0080  0081  0082  0083  0084  0085 
+@caps /dev/input/event5                 0086  0087  0088  0089  008a  008b  008c  008e 
+@caps /dev/input/event5                 0090  0096  0098  009b  009c  009e  009f  00a1 
+@caps /dev/input/event5                 00a3  00a4  00a5  00a6  00a7  00a8  00a9  00ab 
+@caps /dev/input/event5                 00ac  00ad  00ae  00b0  00b1  00b2  00b3  00b4 
+@caps /dev/input/event5                 00b5  00b6  00b7  00b8  00b9  00ba  00bb  00bc 
+@caps /dev/input/event5                 00bd  00be  00bf  00c0  00c1  00c2  00ce  00cf 
+@caps /dev/input/event5                 00d0  00d1  00d2  00d4  00d8  00d9  00db  00df 
+@caps /dev/input/event5                 00e0  00e1  00e4  00e7  00e8  00e9  00ea  00eb 
+@caps /dev/input/event5                 00f0  00f1  00f4  00f9  0100  0161  0162  0166 
+@caps /dev/input/event5                 016a  016e  0172  0174  0176  0178  0179  017a 
+@caps /dev/input/event5                 017b  017c  017d  017f  0180  0182  0183  0185 
+@caps /dev/input/event5                 0188  0189  018c  018d  018e  018f  0190  0191 
+@caps /dev/input/event5                 0192  0193  0195  0197  0198  0199  019a  019c 
+@caps /dev/input/event5                 01a0  01a1  01a2  01a3  01a4  01a5  01a6  01a7 
+@caps /dev/input/event5                 01a8  01a9  01aa  01ab  01ac  01ad  01ae  01af 
+@caps /dev/input/event5                 01b0  01b1  01b7  01ba  0240  0241  0242  0243 
+@caps /dev/input/event5                 0244  0245  0246  0250  0251  027e  027f  0280 
+@caps /dev/input/event5                 0281  0282  0283  0284  0285  0286  0287  02b2 
+@caps /dev/input/event5                 02e8  02e9  02ea  02eb  02ec  02ff 
+@caps /dev/input/event5     MSC (0004): 0004 
+@caps /dev/input/event5   input props:
+@caps /dev/input/event5     <none>
+@end

@@ -1,0 +1,73 @@
+# Sports Remote: example Docker Compose file.
+#
+#   mkdir -p ~/sports-remote/data && cd ~/sports-remote   # create data/ yourself: if Docker creates it, it is root-owned and the uid-1000 container can't write
+#   curl -fsSLO https://raw.githubusercontent.com/jwizenfeld04/Sports-Remote/main/deploy/docker-compose.yml
+#   docker compose up -d && docker compose logs -f     # the log prints a one-time setup link
+#
+# Everything you configure in the app (services, TVs, users, Plex token...) is saved in ./data,
+# together with the ADB key the TV approved. Back that folder up; keep it private (it holds secrets).
+#
+# See docs/hosting.md for Raspberry Pi notes, reverse proxies and Tailscale.
+
+services:
+  sports-remote:
+    image: ghcr.io/jwizenfeld04/sports-remote:latest   # or pin a release: ghcr.io/jwizenfeld04/sports-remote:0.2.0
+    container_name: sports-remote
+    restart: unless-stopped
+    init: false            # the image already runs tini as PID 1
+
+    # Host networking is recommended:
+    #  - ADB connects out to the TV on your LAN; host networking avoids NAT surprises and lets the
+    #    TV's "Allow USB debugging" prompt show this machine's real address.
+    #  - Google TV / Android TV 11+ announce their Wireless-debugging port over mDNS
+    #    (_adb-tls-connect._tcp). That port changes after reboots. When a Google TV is offline the
+    #    server browses mDNS for the new port and updates it itself. Multicast mDNS does not cross
+    #    Docker's bridge network, so automatic rediscovery only works with host networking.
+    network_mode: host
+
+    # Bridge-mode alternative (Fire TV works fine; for Google TV, type the new connect port into
+    # the TV's "connect port" field in the app's setup TVs step and press Reconnect). Remove `network_mode: host` above and uncomment:
+    # ports:
+    #   - "8787:8787"        # or "192.168.1.25:8787:8787" to listen on one interface only
+
+    volumes:
+      - ./data:/data         # config.json, secrets.json, ADB key (/data/.android). Owned by uid 1000.
+
+    environment:
+      # Game times follow the timezone you pick in the app's setup ("Your area" step); no TZ needed.
+      PORT: "8787"
+      # Address to listen on. With host networking, 0.0.0.0 means every interface on this machine;
+      # set a LAN IP to limit it. In bridge mode keep 0.0.0.0 (it's the container's interface).
+      BIND: "0.0.0.0"
+      # Host names the app may be reached by (DNS-rebinding defense). Add your proxy/Tailscale name.
+      # ALLOWED_HOSTS: "sports-remote.local,games.example.ts.net"
+      # Reverse proxies whose X-Forwarded-For / identity headers are trusted (IPs or CIDRs).
+      # TRUSTED_PROXIES: "127.0.0.1,172.16.0.0/12"
+
+    # Optional: cap resources on small boards.
+    # mem_limit: 512m
+
+# ---------------------------------------------------------------------------------------------
+# Optional: reach it from anywhere on your tailnet over HTTPS with Tailscale Serve, without
+# installing Tailscale on the host. Uncomment, put an auth key in ./tailscale.env
+# (TS_AUTHKEY=tskey-auth-...), and set ALLOWED_HOSTS to sports-remote.<tailnet>.ts.net.
+# The sidecar proxies https://sports-remote.<tailnet>.ts.net to the app on the host's port 8787.
+#
+#  tailscale:
+#    image: tailscale/tailscale:latest
+#    container_name: sports-remote-tailscale
+#    hostname: sports-remote
+#    restart: unless-stopped
+#    network_mode: host      # so 127.0.0.1:8787 is the app; use the bridge setup in docs/hosting.md otherwise
+#    env_file: ./tailscale.env
+#    environment:
+#      TS_STATE_DIR: /var/lib/tailscale
+#      TS_USERSPACE: "true"
+#      TS_SERVE_CONFIG: /config/serve.json
+#    volumes:
+#      - ./tailscale/state:/var/lib/tailscale
+#      - ./tailscale/serve.json:/config/serve.json:ro
+#
+# ./tailscale/serve.json:
+#   {"TCP": {"443": {"HTTPS": true}},
+#    "Web": {"${TS_CERT_DOMAIN}:443": {"Handlers": {"/": {"Proxy": "http://127.0.0.1:8787"}}}}}

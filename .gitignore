@@ -1,0 +1,12 @@
+node_modules/
+dist/
+spike/results/
+test-results/
+playwright-report/
+coverage/
+data/
+*.env
+.env*
+!.env.example
+.DS_Store
+.claude/

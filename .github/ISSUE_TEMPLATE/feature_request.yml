@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest an improvement or a new service, league or platform.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The problem first, then the solution. "I want to see which games my Sling Orange tier carries" beats "add Sling".
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to happen?
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources (for new services, channels or rights)
+      description: Links to channel lineups, rights announcements or store listings. Catalog entries need them.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help?
+      options:
+        - label: I can test this on my TV
+        - label: I'd like to open a pull request

@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<!-- Announces the app on the home network. The hostname sports-remote.local needs either this
+     machine's hostname set to sports-remote, or an alias via avahi-publish (see README). -->
+<service-group>
+  <name>Sports Remote</name>
+  <service>
+    <type>_http._tcp</type>
+    <port>8787</port>
+  </service>
+</service-group>

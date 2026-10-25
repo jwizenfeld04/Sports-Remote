@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/jwizenfeld04/Sports-Remote/security/advisories/new
+    about: Please report security problems privately, not as an issue.
+  - name: Hosting and setup help
+    url: https://github.com/jwizenfeld04/Sports-Remote/blob/main/docs/hosting.md
+    about: Docker, Raspberry Pi, reverse proxies, Tailscale.

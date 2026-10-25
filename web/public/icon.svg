@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <title>Sports Remote</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f6bff"/>
+      <stop offset=".55" stop-color="#1b3fd1"/>
+      <stop offset="1" stop-color="#121c6b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".48" cy=".42" r=".55">
+      <stop offset="0" stop-color="#ff5e3a" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ff5e3a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dde5f6"/>
+    </linearGradient>
+    <linearGradient id="ball" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8a3d"/>
+      <stop offset="1" stop-color="#ff2d55"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-20%" width="160%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="26" flood-color="#060b3a" flood-opacity=".45"/>
+    </filter>
+  </defs>
+  <path d="M1024 512 L1024 669 L1023 719 L1021 756 L1019 785 L1017 810 L1014 832 L1010 852 L1006 869 L1001 885 L995 900 L989 914 L982 926 L975 937 L967 948 L958 958 L948 967 L937 975 L926 982 L914 989 L900 995 L885 1001 L869 1006 L852 1010 L832 1014 L810 1017 L785 1019 L756 1021 L719 1023 L669 1024 L512 1024 L355 1024 L305 1023 L268 1021 L239 1019 L214 1017 L192 1014 L172 1010 L155 1006 L139 1001 L124 995 L110 989 L98 982 L87 975 L76 967 L66 958 L57 948 L49 937 L42 926 L35 914 L29 900 L23 885 L18 869 L14 852 L10 832 L7 810 L5 785 L3 756 L1 719 L0 669 L0 512 L0 355 L1 305 L3 268 L5 239 L7 214 L10 192 L14 172 L18 155 L23 139 L29 124 L35 110 L42 98 L49 87 L57 76 L66 66 L76 57 L87 49 L98 42 L110 35 L124 29 L139 23 L155 18 L172 14 L192 10 L214 7 L239 5 L268 3 L305 1 L355 0 L512 0 L669 0 L719 1 L756 3 L785 5 L810 7 L832 10 L852 14 L869 18 L885 23 L900 29 L914 35 L926 42 L937 49 L948 57 L958 66 L967 76 L975 87 L982 98 L989 110 L995 124 L1001 139 L1006 155 L1010 172 L1014 192 L1017 214 L1019 239 L1021 268 L1023 305 L1024 355Z" fill="url(#bg)"/>
+  <path d="M1024 512 L1024 669 L1023 719 L1021 756 L1019 785 L1017 810 L1014 832 L1010 852 L1006 869 L1001 885 L995 900 L989 914 L982 926 L975 937 L967 948 L958 958 L948 967 L937 975 L926 982 L914 989 L900 995 L885 1001 L869 1006 L852 1010 L832 1014 L810 1017 L785 1019 L756 1021 L719 1023 L669 1024 L512 1024 L355 1024 L305 1023 L268 1021 L239 1019 L214 1017 L192 1014 L172 1010 L155 1006 L139 1001 L124 995 L110 989 L98 982 L87 975 L76 967 L66 958 L57 948 L49 937 L42 926 L35 914 L29 900 L23 885 L18 869 L14 852 L10 832 L7 810 L5 785 L3 756 L1 719 L0 669 L0 512 L0 355 L1 305 L3 268 L5 239 L7 214 L10 192 L14 172 L18 155 L23 139 L29 124 L35 110 L42 98 L49 87 L57 76 L66 66 L76 57 L87 49 L98 42 L110 35 L124 29 L139 23 L155 18 L172 14 L192 10 L214 7 L239 5 L268 3 L305 1 L355 0 L512 0 L669 0 L719 1 L756 3 L785 5 L810 7 L832 10 L852 14 L869 18 L885 23 L900 29 L914 35 L926 42 L937 49 L948 57 L958 66 L967 76 L975 87 L982 98 L989 110 L995 124 L1001 139 L1006 155 L1010 172 L1014 192 L1017 214 L1019 239 L1021 268 L1023 305 L1024 355Z" fill="url(#glow)"/>
+  <path d="M1024 512 L1024 669 L1023 719 L1021 756 L1019 785 L1017 810 L1014 832 L1010 852 L1006 869 L1001 885 L995 900 L989 914 L982 926 L975 937 L967 948 L958 958 L948 967 L937 975 L926 982 L914 989 L900 995 L885 1001 L869 1006 L852 1010 L832 1014 L810 1017 L785 1019 L756 1021 L719 1023 L669 1024 L512 1024 L355 1024 L305 1023 L268 1021 L239 1019 L214 1017 L192 1014 L172 1010 L155 1006 L139 1001 L124 995 L110 989 L98 982 L87 975 L76 967 L66 958 L57 948 L49 937 L42 926 L35 914 L29 900 L23 885 L18 869 L14 852 L10 832 L7 810 L5 785 L3 756 L1 719 L0 669 L0 512 L0 355 L1 305 L3 268 L5 239 L7 214 L10 192 L14 172 L18 155 L23 139 L29 124 L35 110 L42 98 L49 87 L57 76 L66 66 L76 57 L87 49 L98 42 L110 35 L124 29 L139 23 L155 18 L172 14 L192 10 L214 7 L239 5 L268 3 L305 1 L355 0 L512 0 L669 0 L719 1 L756 3 L785 5 L810 7 L832 10 L852 14 L869 18 L885 23 L900 29 L914 35 L926 42 L937 49 L948 57 L958 66 L967 76 L975 87 L982 98 L989 110 L995 124 L1001 139 L1006 155 L1010 172 L1014 192 L1017 214 L1019 239 L1021 268 L1023 305 L1024 355Z" fill="none" stroke="#fff" stroke-opacity=".16" stroke-width="4"/>
+  <g transform="translate(512 512) scale(1.1) translate(-512 -512)">
+  <g transform="translate(-28 44)">
+    <g transform="rotate(14 512 512)">
+      <g filter="url(#shadow)">
+        <rect x="372" y="172" width="280" height="680" rx="140" fill="url(#body)"/>
+      </g>
+      <rect x="372" y="172" width="280" height="680" rx="140" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="4"/>
+      <circle cx="512" cy="330" r="104" fill="url(#ball)"/>
+      <g fill="none" stroke="#fff" stroke-opacity=".38" stroke-width="7" stroke-linecap="round">
+        <path d="M512 226 V434"/>
+        <path d="M418 286 Q512 330 606 286"/>
+        <path d="M418 374 Q512 330 606 374"/>
+      </g>
+      <path d="M486 288 L486 372 L558 330 Z" fill="#fff" stroke="#fff" stroke-width="22" stroke-linejoin="round"/>
+      <rect x="420" y="490" width="76" height="52" rx="26" fill="#c9d3ea"/>
+      <rect x="528" y="490" width="76" height="52" rx="26" fill="#c9d3ea"/>
+      <rect x="420" y="578" width="184" height="52" rx="26" fill="#c9d3ea"/>
+      <circle cx="512" cy="712" r="30" fill="#c9d3ea"/>
+    </g>
+    <g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="34">
+      <path d="M690 150 A 112 112 0 0 1 742 238" stroke-opacity=".95"/>
+      <path d="M716 64 A 196 196 0 0 1 822 222" stroke-opacity=".55"/>
+    </g>
+  </g>
+  </g>
+</svg>

@@ -1,0 +1,81 @@
+name: Bug report
+description: Something doesn't work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Security problems go through a private advisory, not here (see SECURITY.md).
+        If a specific app or deep link didn't open the right thing, the **App / route report** template is a better fit.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+      placeholder: Tapped Bruins vs Rangers (ESPN+). The ESPN app opened on its home screen instead of the game.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+  - type: input
+    id: version
+    attributes:
+      label: Sports Remote version
+      description: The image tag, or `curl -s http://127.0.0.1:8787/healthz` on the server.
+      placeholder: 0.2.0 / edge (sha) / main @ abc1234
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How it's installed
+      options:
+        - Docker (host networking)
+        - Docker (bridge networking)
+        - Bare metal (deploy/install.sh)
+        - Development (npm run dev)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: Server hardware / OS
+      placeholder: Raspberry Pi 5, Raspberry Pi OS bookworm 64-bit / Intel NUC, Ubuntu 24.04
+  - type: input
+    id: tv
+    attributes:
+      label: TV model and platform
+      description: Settings → About on the TV, or the `tv_state`/`started` log lines.
+      placeholder: Fire TV Stick 4K Max (AFTKRT), Fire OS 8.1.2 / Chromecast with Google TV (4K), Android TV 14
+    validations:
+      required: true
+  - type: input
+    id: apps
+    attributes:
+      label: App(s) and version(s) involved
+      description: "On the TV: Settings → Applications → Manage → the app, or `adb shell dumpsys package <pkg> | grep versionName`."
+      placeholder: ESPN 7.4.1, YouTube TV 2.10.3
+  - type: input
+    id: client
+    attributes:
+      label: Phone / browser
+      placeholder: iPhone 15, Safari 18 (home-screen app)
+  - type: textarea
+    id: logs
+    attributes:
+      label: Launch log line
+      description: |
+        The `launch` line for the failed attempt, plus any `server_error`. Docker: `docker logs sports-remote 2>&1 | grep '"evt":"launch"' | tail -1`.
+        Bare metal: `journalctl -u sports-remote -o cat | grep '"evt":"launch"' | tail -1`. Logs contain no secrets, but check before posting.
+      render: json
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Screenshots of the TV or the app, what was on screen before, network setup (proxy, Tailscale)...

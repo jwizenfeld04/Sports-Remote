@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  test:
+    name: Typecheck, unit tests, build, e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit and UI tests (vitest)
+        run: npm test
+
+      - name: Build (UI + server)
+        run: npm run build
+
+      - name: Smoke-test the compiled server
+        # Start the built server on an empty data dir. It must reach first-run setup and log "setup_required",
+        # which proves the bundle loads and the config, auth and listen paths work.
+        run: |
+          data="$(mktemp -d)"
+          port="$(node -e 'const s=require("net").createServer().listen(0,"127.0.0.1",()=>{console.log(s.address().port);s.close()})')"
+          log="$(mktemp)"
+          DATA_DIR="$data" PORT="$port" BIND=127.0.0.1 node dist/server/main.mjs >"$log" 2>&1 &
+          pid=$!
+          ok=1
+          for _ in $(seq 1 30); do
+            if grep -q '"evt":"setup_required"' "$log"; then ok=0; break; fi
+            kill -0 "$pid" 2>/dev/null || break
+            sleep 1
+          done
+          kill "$pid" 2>/dev/null || true
+          wait "$pid" 2>/dev/null || true
+          tail -5 "$log"
+          [ "$ok" -eq 0 ] || { echo "server never logged setup_required"; exit 1; }
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: End-to-end tests (Playwright)
+        run: npx playwright test
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
+
+  audit:
+    name: npm audit (production deps)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+      - run: npm audit --omit=dev --audit-level=high
+
+  shell:
+    name: Lint deploy scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: shellcheck
+        run: shellcheck deploy/install.sh

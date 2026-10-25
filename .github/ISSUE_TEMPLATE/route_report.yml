@@ -1,0 +1,80 @@
+name: App / route report
+description: Tell us whether opening a game in a particular app works on your TV. These reports decide which deep links get marked verified.
+title: "[route] <app> on <TV model>: <works | partly | broken>"
+labels: [route-report]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One report per app + TV is perfect. "It works" reports are just as useful as failures.
+        If you can, run `npm run tv -- launch <app> --network <network>` on the server (in Docker: `docker exec sports-remote node dist/server/cli.mjs launch <app> --network <network>`) and paste its output below.
+  - type: input
+    id: app
+    attributes:
+      label: App
+      placeholder: YouTube TV / ESPN / Peacock / Prime Video / Plex / NBA / MLB / ...
+    validations:
+      required: true
+  - type: input
+    id: app_version
+    attributes:
+      label: App version and package
+      placeholder: com.google.android.youtube.tvunplugged 2.10.3
+  - type: input
+    id: tv
+    attributes:
+      label: TV model and platform / OS version
+      placeholder: Fire TV Cube 3rd gen (AFTGAZL), Fire OS 7.7 / Google TV Streamer, Android TV 14
+    validations:
+      required: true
+  - type: input
+    id: service
+    attributes:
+      label: Subscription and tier
+      description: What you sign in to the app with, if it isn't the app's own service (e.g. ESPN app via YouTube TV).
+      placeholder: YouTube TV base + Sports Plus
+  - type: input
+    id: game
+    attributes:
+      label: Game and network
+      placeholder: "NFL: Bills @ Chiefs on CBS, 2026-10-18"
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Where did it land?
+      options:
+        - In the game, playing (game level)
+        - On the right channel / live stream (channel level)
+        - On a page about the game, one click away
+        - App home screen (app level)
+        - Profile picker or sign-in screen
+        - Wrong game or channel
+        - Error / app didn't open
+    validations:
+      required: true
+  - type: dropdown
+    id: entry
+    attributes:
+      label: Was the app already open?
+      options:
+        - "No, it was closed (cold start)"
+        - "Yes, it was already in front (warm)"
+        - Don't know
+  - type: input
+    id: time
+    attributes:
+      label: How long until video played
+      placeholder: ~6 s
+  - type: textarea
+    id: log
+    attributes:
+      label: Launch log line and `npm run tv -- launch` output
+      description: The `"evt":"launch"` line from the server log, and the JSON printed by `launch <app> --network <network>`.
+      render: json
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything the app did that a navigator would need to handle (popups, "still watching?", region prompts...).

@@ -1,0 +1,17 @@
+# Keep the build context small and free of secrets.
+.git
+.github
+.claude
+node_modules
+dist
+data
+spike/results
+test-results
+playwright-report
+coverage
+*.env
+.env*
+**/*.log
+.DS_Store
+Dockerfile
+.dockerignore
