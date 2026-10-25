@@ -17,9 +17,7 @@ Sports Remote controls your TV over ADB, so it must run **on your home network**
 ## What you need
 
 - A Linux host on the **same LAN as the TV**: `linux/amd64` or `linux/arm64` (64-bit Raspberry Pi OS).
-- ADB debugging turned on on the TV:
-  - **Fire TV:** Settings → My Fire TV → Developer options → **ADB debugging**. If Developer options is hidden, open About and click the device name 7 times.
-  - **Google TV / Android TV 11+:** Settings → System → About → click **Android TV OS build** 7 times. Then go to System → Developer options → **Wireless debugging**.
+- ADB debugging turned on on the TV. The [TV setup guide](tv-setup.md) has the steps for each device.
 - A fixed address for the TV: a DHCP reservation on your router.
 - Optional: Plex Media Server with a tuner (for local channels), and an ESPN Watch API key. Both are set in the app.
 

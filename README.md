@@ -44,7 +44,7 @@ The last command prints a one-time setup link. Open it on your phone or computer
 1. **Sign-in.** Choose how people in your home get in.
 2. **Your area and teams.** These decide your local channels, your local teams and what's blacked out.
 3. **Your services.** Tick what you pay for. The coverage panel updates as you go.
-4. **Your TVs.** On a Fire TV, turn on ADB debugging. On a Google TV, turn on Wireless debugging. Then connect from the wizard.
+4. **Your TVs.** Turn on debugging in the TV's developer settings, then connect from the wizard. The [TV setup guide](docs/tv-setup.md) has the steps for each device.
 
 You can run it without Docker too (Debian, Ubuntu or Raspberry Pi OS with systemd), and reach it securely away from home. See the **[hosting guide](docs/hosting.md)**.
 
@@ -68,8 +68,11 @@ The server only ever sends the TV a fixed set of commands, and everything stays 
 ## Supported TVs and services
 
 **TVs:**
-- Amazon Fire TV.
-- Google TV and Android TV 11 or newer.
+- Amazon Fire TV: sticks, Cube and Fire TV smart TVs.
+- Google TV: Google TV Streamer, Chromecast with Google TV, and Google TV smart TVs.
+- Other Android TV devices, such as the NVIDIA Shield.
+
+Roku, Apple TV, Samsung and LG TVs, and the newest Vega OS Fire TV sticks, aren't Android and can't be used. See the [TV setup guide](docs/tv-setup.md).
 
 **Services:**
 - **Live TV:** YouTube TV, Hulu + Live TV, Fubo, Sling, DIRECTV Stream.

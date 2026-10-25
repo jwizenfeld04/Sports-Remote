@@ -53,18 +53,25 @@ const GOOGLE_TV_LAUNCHERS = ["com.google.android.apps.tv.launcherx", "com.google
  * null = not a TV we support (a phone, or an unknown Android box).
  */
 export function detectPlatform(p: DeviceProps, packages: Set<string>): Platform | null {
+  if (VEGA_MODELS.has(p.model)) return null; // Vega OS: not Android
   if (/amazon/i.test(p.manufacturer) || p.fireOsVersion || FIRE_LAUNCHERS.some((x) => packages.has(x))) return "firetv";
   if (GOOGLE_TV_LAUNCHERS.some((x) => packages.has(x))) return "googletv";
   if (/\btv\b/i.test(p.characteristics)) return "googletv"; // other Android TV builds behave the same over adb
   return null;
 }
 
+/** Fire TV models that run Vega OS instead of Android: no ADB, so they can't be controlled. */
+export const VEGA_MODELS = new Set(["AFTCA002", "AFTCL001", "AFTCR001"]);
+
 /** A friendly default name: "Fire TV Stick 4K Max", "Chromecast with Google TV", or the model code. */
 export function friendlyModel(p: DeviceProps): string {
   const known: Record<string, string> = {
-    AFTKA: "Fire TV Stick 4K Max", AFTKM: "Fire TV Stick 4K Max (2nd gen)", AFTKRT: "Fire TV Stick 4K Max (2nd gen)",
-    AFTMM: "Fire TV Stick 4K", AFTSS: "Fire TV Stick (3rd gen)", AFTSSS: "Fire TV Stick Lite", AFTGAZL: "Fire TV Cube (3rd gen)",
-    AFTR: "Fire TV Cube (2nd gen)", AFTT: "Fire TV Stick (2nd gen)",
+    // Amazon's model table: developer.amazon.com/docs/device-specs/identify-fire-tv-devices.html
+    AFTKA: "Fire TV Stick 4K Max", AFTKRT: "Fire TV Stick 4K Max (2nd gen)", AFTKM: "Fire TV Stick 4K (2nd gen)",
+    AFTMM: "Fire TV Stick 4K", AFTMA08C15: "Fire TV Stick 4K Plus", AFTSSS: "Fire TV Stick (3rd gen)", AFTSS: "Fire TV Stick Lite",
+    AFTT: "Fire TV Stick (2nd gen)", AFTM: "Fire TV Stick", AFTA: "Fire TV Cube", AFTR: "Fire TV Cube (2nd gen)",
+    AFTGAZL: "Fire TV Cube (3rd gen)", AFTN: "Fire TV (3rd gen)", AFTKA002: "Fire TV 2-Series", AFTKAUK002: "Fire TV 2-Series",
+    AFTTI43: "Fire TV 4-Series", AFTTIFF43: "Fire TV Omni", AFTDCT31: "Fire TV smart TV",
     "Chromecast": "Chromecast with Google TV", "Google TV Streamer": "Google TV Streamer", "SHIELD Android TV": "NVIDIA Shield",
   };
   if (known[p.model]) return known[p.model];

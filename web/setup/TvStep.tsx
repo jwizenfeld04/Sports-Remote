@@ -6,23 +6,51 @@ import { APP_RECORD } from "../catalog";
 import { api, type TvView } from "../api";
 import { Button, Icon, Segmented } from "../components/ui";
 
-// Add the TVs this server controls. Fire TV: turn on ADB debugging, connect, accept the prompt on the TV.
-// Google TV / Android TV 11+: turn on wireless debugging and pair with the six-digit code the TV shows.
+// Add the TVs this server controls. Three kinds of device, each with its own steps:
+//  - Fire TV: ADB debugging, connect on 5555, accept the prompt on the TV.
+//  - Google TV: newer models pair with a code (Wireless debugging); older ones connect directly like a Fire TV.
+//  - Other Android TV boxes (NVIDIA Shield, Mi Box, onn.): Network/USB debugging, connect directly.
+// Detailed per-device steps: docs/tv-setup.md.
 
-const STEPS: Record<Platform, string[]> = {
-  firetv: [
-    "On the Fire TV: Settings → My Fire TV → About. Select the device name 7 times until it says you're a developer.",
-    "Back in My Fire TV → Developer options: turn on ADB debugging.",
-    "Settings → My Fire TV → About → Network shows the TV's IP address. Enter it below.",
-    "When you press Connect, the TV asks to allow USB debugging: tick “Always allow from this computer” and choose Allow.",
-  ],
-  googletv: [
-    "On the TV: Settings → System → About. Select “Android TV OS build” 7 times until it says you're a developer.",
-    "Settings → System → Developer options: turn on Wireless debugging (or Network debugging on older models).",
-    "Open Wireless debugging → Pair device with pairing code. Leave that screen up.",
-    "Enter the IP address and port and the six-digit code it shows.",
-  ],
+type Kind = "firetv" | "googletv" | "androidtv";
+type Method = "pair" | "direct";
+
+const GUIDE_URL = "https://github.com/jwizenfeld04/Sports-Remote/blob/main/docs/tv-setup.md";
+
+const STEPS: Record<Kind, Partial<Record<Method, string[]>>> = {
+  firetv: {
+    direct: [
+      "On the Fire TV: Settings → My Fire TV (or Device) → About. Highlight the device name (“Your TV” on a Fire TV smart TV) and press the center button 7 times, until it says you're a developer.",
+      "Press Back, open Developer options and turn on ADB debugging.",
+      "Find the TV's IP address under My Fire TV → About → Network, and enter it below.",
+      "Press Connect. The TV asks “Allow USB debugging?”: tick “Always allow from this computer” and choose OK.",
+    ],
+  },
+  googletv: {
+    pair: [
+      "On the TV: Settings → System → About. Select “Android TV OS build” 7 times, until it says you're a developer.",
+      "Back in Settings → System → Developer options, turn on Wireless debugging.",
+      "Open Wireless debugging → Pair device with pairing code, and leave that screen up.",
+      "Enter the IP address, the port and the six-digit code shown under “Pair device”.",
+    ],
+    direct: [
+      "On the TV: Settings → System → About. Select “Android TV OS build” 7 times, until it says you're a developer.",
+      "Back in Settings → System → Developer options, turn on USB debugging (no Wireless debugging option on older models).",
+      "Find the IP address under Settings → Network & Internet → your network, and enter it below.",
+      "Press Connect. The TV asks to allow debugging: tick “Always allow from this computer” and choose OK.",
+    ],
+  },
+  androidtv: {
+    direct: [
+      "Settings → Device Preferences → About. Select Build 7 times, until it says you're a developer.",
+      "Back in Device Preferences → Developer options, turn on Network debugging (on some boxes it's USB debugging; turn on both if you see both).",
+      "Find the IP address under Settings → Network & Internet, and enter it below. The port is 5555 unless the debugging screen shows another.",
+      "Press Connect. The TV asks to allow debugging: tick “Always allow from this computer” and choose OK.",
+    ],
+  },
 };
+
+const KIND_PLATFORM: Record<Kind, Platform> = { firetv: "firetv", googletv: "googletv", androidtv: "googletv" };
 
 interface Props {
   adbMissing?: boolean;
@@ -35,7 +63,11 @@ interface Props {
 type Phase = { kind: "idle" } | { kind: "busy"; text: string } | { kind: "error"; text: string } | { kind: "found"; host: string; port: number; platform: Platform | null; name: string; model: string; apps: string[] };
 
 export function TvStep({ adbMissing, tvs, status, subscriptions, onChanged }: Props) {
-  const [platform, setPlatform] = useState<Platform>("firetv");
+  const [kind, setKind] = useState<Kind>("firetv");
+  const [method, setMethod] = useState<Method>("direct");
+  const [directPort, setDirectPort] = useState("5555");
+  const platform = KIND_PLATFORM[kind];
+  const pairing = kind === "googletv" && method === "pair";
   const [host, setHost] = useState("");
   const [pairPort, setPairPort] = useState("");
   const [code, setCode] = useState("");
@@ -73,17 +105,20 @@ export function TvStep({ adbMissing, tvs, status, subscriptions, onChanged }: Pr
     setPhase({ kind: "found", host: h, port: p, ...id.data });
   };
 
-  const connectFire = async () => {
+  const connectDirect = async () => {
     if (!host) return;
-    setPhase({ kind: "busy", text: "Connecting... If the TV asks to allow USB debugging, tick “Always allow” and choose Allow." });
-    const r = await api.connectTv(host, 5555, true);
+    const port = kind === "androidtv" ? Number(directPort) || 5555 : 5555;
+    setPhase({ kind: "busy", text: "Connecting... If the TV asks to allow debugging, tick “Always allow” and choose OK." });
+    const r = await api.connectTv(host, port, true);
     const state = r.data?.state;
-    if (state === "connected") return identify(host, 5555);
+    if (state === "connected") return identify(host, port);
+    const toggle = kind === "firetv" ? "ADB debugging" : kind === "googletv" ? "USB debugging" : "Network debugging";
     setPhase({
       kind: "error",
-      text: state === "unauthorized" ? "The TV didn't allow this server yet. Choose Allow on the TV, then try again."
-        : state === "refused" ? "The TV refused the connection: turn on ADB debugging in Developer options."
-          : "Couldn't reach that address. Check the IP and that the TV is on.",
+      text: state === "unauthorized" ? "The TV didn't allow this server yet. Choose OK on the TV's prompt, then try again."
+        : state === "refused"
+          ? `The TV refused the connection: check that ${toggle} is on in Developer options.${kind === "firetv" ? " (Fire TV Stick 4K Select, Stick HD 2026 and Stick 4K 3rd gen can't be used: they don't run Android.)" : kind === "googletv" ? " Newer Google TVs need “Pair with a code” instead." : ""}`
+          : "Couldn't reach that address. Check the IP address and that the TV is on and on the same network.",
     });
   };
 
@@ -150,7 +185,7 @@ export function TvStep({ adbMissing, tvs, status, subscriptions, onChanged }: Pr
             </div>
             {t.platform === "googletv" && st?.adb !== "connected" && (
               <div className="row-actions small">
-                <span className="muted">Offline? Google TV changes its port after a restart. Sports Remote looks for it automatically; you can also enter the port from Wireless debugging → IP address &amp; port.</span>
+                <span className="muted">Offline? After a restart, a Google TV may turn Wireless debugging off and pick a new port. Turn it back on in Developer options; Sports Remote finds the new port by itself, or enter it from Wireless debugging → IP address &amp; port.</span>
                 <label className="field"><span>Connect port</span><input inputMode="numeric" value={ports[t.id] ?? ""} onChange={(e) => setPorts({ ...ports, [t.id]: e.target.value.replace(/\D/g, "").slice(0, 5) })} placeholder={String(t.port)} /></label>
                 <Button variant="ghost" disabled={!ports[t.id]} onClick={() => reconnect(t)}>Reconnect</Button>
               </div>
@@ -162,23 +197,36 @@ export function TvStep({ adbMissing, tvs, status, subscriptions, onChanged }: Pr
 
       <section className="tv-add">
         <h3>{tvs.length ? "Add another TV" : "Add your TV"}</h3>
-        <Segmented label="TV type" value={platform} onChange={(p) => (setPlatform(p), setPhase({ kind: "idle" }), setNeedPort(false))} options={[{ value: "firetv", label: "Fire TV" }, { value: "googletv", label: "Google TV / Android TV" }]} />
-        <ol className="tv-steps small">{STEPS[platform].map((s) => <li key={s}>{s}</li>)}</ol>
+        <Segmented label="TV type" value={kind} onChange={(k) => (setKind(k), setMethod(k === "googletv" ? "pair" : "direct"), setPhase({ kind: "idle" }), setNeedPort(false))} options={[{ value: "firetv", label: "Fire TV" }, { value: "googletv", label: "Google TV" }, { value: "androidtv", label: "Other Android TV" }]} />
+        <p className="muted small tv-kinds">
+          {kind === "firetv" ? "Fire TV Stick, Fire TV Cube, and smart TVs with Fire TV built in (Insignia, Toshiba, Hisense, Amazon Omni …)."
+            : kind === "googletv" ? "Google TV Streamer, Chromecast with Google TV, and Google TV smart TVs (Sony, TCL, Hisense …)."
+              : "NVIDIA Shield, Xiaomi Mi Box, onn. and other Android TV boxes and TVs."}
+        </p>
+        {kind === "googletv" && (
+          <Segmented label="How to connect" value={method} onChange={(m) => (setMethod(m), setPhase({ kind: "idle" }), setNeedPort(false))} options={[{ value: "pair", label: "Pair with a code" }, { value: "direct", label: "Connect directly" }]} />
+        )}
+        {kind === "googletv" && <p className="muted small">{method === "pair" ? "For newer models with Wireless debugging in Developer options." : "For older models that only have USB debugging."}</p>}
+        <ol className="tv-steps small">{(STEPS[kind][method] ?? []).map((s) => <li key={s}>{s}</li>)}</ol>
+        {kind === "firetv" && <p className="muted small">Not supported: Fire TV Stick 4K Select, Fire TV Stick HD (2026) and Fire TV Stick 4K (3rd gen). They run Amazon's Vega OS instead of Android (About shows “OS 1.x”).</p>}
         <div className="form-grid">
           <label className="field"><span>TV's IP address</span><input inputMode="decimal" value={host} onChange={(e) => setHost(e.target.value.trim())} placeholder="192.168.1.50" data-testid="tv-host" /></label>
-          {platform === "googletv" && !needPort && (
+          {kind === "androidtv" && (
+            <label className="field"><span>Port</span><input inputMode="numeric" value={directPort} onChange={(e) => setDirectPort(e.target.value.replace(/\D/g, "").slice(0, 5))} placeholder="5555" /></label>
+          )}
+          {pairing && !needPort && (
             <>
               <label className="field"><span>Pairing port</span><input inputMode="numeric" value={pairPort} onChange={(e) => setPairPort(e.target.value.replace(/\D/g, ""))} placeholder="37115" /></label>
               <label className="field"><span>Pairing code</span><input inputMode="numeric" value={code} maxLength={6} onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} placeholder="123456" /></label>
             </>
           )}
-          {platform === "googletv" && needPort && (
+          {pairing && needPort && (
             <label className="field"><span>Connect port</span><input inputMode="numeric" value={connectPort} onChange={(e) => setConnectPort(e.target.value.replace(/\D/g, ""))} placeholder="41239" /></label>
           )}
         </div>
         <div className="row-actions">
-          <Button variant="primary" disabled={phase.kind === "busy" || !host || (platform === "googletv" && !needPort && (code.length !== 6 || !pairPort))} onClick={() => (platform === "firetv" ? connectFire() : pairGoogle())} data-testid="tv-connect">
-            {platform === "firetv" ? "Connect" : needPort ? "Connect" : "Pair"}
+          <Button variant="primary" disabled={phase.kind === "busy" || !host || (pairing && !needPort && (code.length !== 6 || !pairPort))} onClick={() => (pairing ? pairGoogle() : connectDirect())} data-testid="tv-connect">
+            {pairing && !needPort ? "Pair" : "Connect"}
           </Button>
           <Button variant="ghost" icon="search" disabled={phase.kind === "busy"} onClick={discover}>Find TVs</Button>
         </div>
@@ -199,6 +247,9 @@ export function TvStep({ adbMissing, tvs, status, subscriptions, onChanged }: Pr
             <Button variant="primary" onClick={save} data-testid="tv-save">Save TV</Button>
           </div>
         )}
+        <p className="muted small tv-help">
+          Roku, Apple TV, Samsung and LG TVs can't be used: they don't run Android, so there's no ADB. <a href={GUIDE_URL} target="_blank" rel="noreferrer">Step-by-step guide for each device</a>
+        </p>
       </section>
     </div>
   );
