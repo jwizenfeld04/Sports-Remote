@@ -58,7 +58,6 @@ export function ServicesStep({ subscriptions, tveSignIns, gain, onChange }: Prop
                       <span className="svc-check" aria-hidden>{mine && <Icon name="check" size={16} />}</span>
                       <span className="svc-name">{def.name}</span>
                       {!mine && adds > 0 && <span className="svc-gain">+{adds}</span>}
-                      <span className="svc-price muted small">{def.tiers?.find((t) => t.id === (mine?.tier ?? def.defaultTier))?.price ?? def.price}</span>
                     </button>
                     <p className="svc-blurb small">{def.blurb}</p>
                     {def.confidence === "low" && <p className="svc-note small"><Icon name="info" size={14} /> Channel lineup not confirmed; coverage may be off.</p>}
@@ -77,7 +76,7 @@ export function ServicesStep({ subscriptions, tveSignIns, gain, onChange }: Prop
                           const on = mine.addOns.includes(a.id);
                           return (
                             <button key={a.id} type="button" className={`chip${on ? " on" : ""}`} aria-pressed={on} onClick={() => update(def.id, { addOns: on ? mine.addOns.filter((x) => x !== a.id) : [...mine.addOns, a.id] })}>
-                              {on ? "✓ " : "+ "}{a.name}{a.price ? <span className="muted"> · {a.price}</span> : null}
+                              {on ? "✓ " : "+ "}{a.name}
                             </button>
                           );
                         })}

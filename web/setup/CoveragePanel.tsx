@@ -117,7 +117,7 @@ export function CoveragePanel({ report, sample, onSample, realLeagues, onAdd, co
                         title={f.certain ? undefined : "Reported to carry it, not confirmed"}
                       >
                         <span className="cov-fix-name">{onAdd ? "+ " : ""}{f.name}</span>
-                        <span className="cov-fix-meta">{f.adds > 0 ? `+${f.adds} games` : "—"}{f.price ? ` · ${f.price}` : ""}</span>
+                        <span className="cov-fix-meta">{f.adds > 0 ? `+${f.adds} games` : "—"}</span>
                       </button>
                     ))}
                   </div>

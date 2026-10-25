@@ -778,7 +778,6 @@ button.row:focus-visible { outline-offset: -3px; border-radius: var(--r-md); }
 .svc-card.on .svc-check { background: var(--accent-fill); border-color: var(--accent-fill); color: var(--accent-ink); }
 .svc-name { flex: 1; font-weight: 650; }
 .svc-gain { padding: 2px 8px; border-radius: var(--r-pill); background: rgb(48 209 88 / 0.16); color: var(--good); font-size: var(--fs-xs); font-weight: 700; }
-.svc-price { white-space: nowrap; }
 .svc-blurb { margin: 0; color: var(--text-2); line-height: 1.45; }
 .svc-note { margin: 0; display: flex; gap: 6px; align-items: flex-start; color: var(--warn); }
 .svc-tve { display: flex; gap: var(--sp-2); align-items: flex-start; padding: var(--sp-2); border-radius: var(--r-sm); background: var(--fill-2); }
@@ -787,7 +786,6 @@ button.row:focus-visible { outline-offset: -3px; border-radius: var(--r-md); }
 .svc-tiers .segment { white-space: normal; text-align: center; line-height: 1.2; padding: 6px 8px; }
 .svc-toggle { flex-wrap: wrap; row-gap: 2px; }
 .svc-name { flex: 1 1 9ch; min-width: 0; }
-.svc-price { white-space: normal; text-align: right; margin-left: auto; }
 .svc-addons .chip { white-space: normal; text-align: left; height: auto; min-height: 36px; padding-block: 6px; max-width: 100%; }
 
 .local-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }

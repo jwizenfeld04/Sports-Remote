@@ -16,7 +16,7 @@ export interface Gap {
   need: string; // "Peacock", "NBA League Pass", "MSG"
   games: number;
   examples: string[]; // "BOS @ NY"
-  fixes: { id: string; name: string; tier?: string; price?: string; certain: boolean; adds: number }[];
+  fixes: { id: string; name: string; tier?: string; certain: boolean; adds: number }[];
 }
 
 export interface CoverageReport {
@@ -72,8 +72,7 @@ export function coverage(games: Game[], ctx: ResolveContext, favorites: string[]
         .filter(([id]) => !owned.has(id))
         .map(([id, s]) => {
           const def = SUBSCRIPTION_BY_ID.get(id)!;
-          const tier = def.tiers?.find((t) => t.id === s.tier);
-          return { id, name: def.name, tier: s.tier, price: tier?.price ?? def.price, certain: s.certain, adds: gainFrom(games, ctx, id, s.tier, perGame) };
+          return { id, name: def.name, tier: s.tier, certain: s.certain, adds: gainFrom(games, ctx, id, s.tier, perGame) };
         })
         .sort((a, b) => b.adds - a.adds || Number(b.certain) - Number(a.certain))
         .slice(0, 4),

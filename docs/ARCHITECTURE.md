@@ -24,7 +24,7 @@ lib/
   availability.ts    game -> what it takes to watch it here (rules in docs/coverage.md)
   entitlements.ts    household subscriptions -> what they grant, and in which apps
   resolve.ts         game + household -> ranked launch routes, or why none
-  coverage.ts        resolver over many games: shares, gaps, cheapest fixes
+  coverage.ts        resolver over many games: shares, gaps, and the services that would fill them
   profile.ts         zod schemas for config.json (market, TVs, preferences...)
   filters.ts, search.ts, messages.ts, guideMatch.ts, types.ts   UI helpers and shared types
 server/
@@ -79,7 +79,7 @@ Carriage claims in the catalog cite their sources in `lib/catalog/sources.json`,
 
 The same code runs in the browser, so the card shows what the server will do. The server resolves again on `POST /api/launch` for the chosen TV, and the client may only pick one of the routes the server produced.
 
-`lib/coverage.ts` runs the resolver over a sample of games (the next days from ESPN, or a synthetic typical week) to report what share you can watch, the gaps, and the cheapest fixes. The setup wizard and the coverage page use it.
+`lib/coverage.ts` runs the resolver over a sample of games (the next days from ESPN, or a synthetic typical week) to report what share you can watch, the gaps, and the services that would add the most games. The setup wizard and the coverage page use it.
 
 ## TVs
 

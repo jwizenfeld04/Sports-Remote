@@ -20,7 +20,7 @@ The 0.2 line turns a single-household tool into a general open-source app. See [
   - teams for NFL, NBA, MLB and NHL;
   - markets.
 - **NBA** games, plus local-team handling (RSN, team app, antenna) per market.
-- **Coverage report:** the share of games you can watch, the gaps, and the cheapest subscriptions that would close them. Shown live in the setup wizard.
+- **Coverage report:** the share of games you can watch, the gaps, and the services that would add the most games. No prices: they change too often to keep right. Shown live in the setup wizard.
 - **Access modes:** household PIN, named accounts (admin/member), or a trusted reverse-proxy header (Tailscale Serve, Authelia, Authentik, Cloudflare Access). The first admin is created from a one-time setup link printed in the log.
 - **Settings in the app.** Configuration is versioned in `DATA_DIR/config.json` and `secrets.json` (0600), with migrations. Bad or newer-version files stop the server instead of being reset.
 - **Docker image** for `linux/amd64` and `linux/arm64` (Raspberry Pi 4/5), published to GHCR. It includes adb 34 and tesseract, runs as a non-root user, has a healthcheck, and comes with SBOM/provenance and a cosign signature. See `deploy/docker-compose.yml`.

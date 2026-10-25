@@ -72,7 +72,7 @@ The setup wizard and the Coverage page measure a household against a set of game
 For each game: **yes** (a certain route), **probably** (only probably routes), or **no**. The page then shows:
 - the overall score,
 - the score per league and per favorite team,
-- the gaps, grouped by what's missing ("MSG: 13 games"), with the services that would fill each gap and their prices.
+- the gaps, grouped by what's missing ("MSG: 13 games"), with the services that would fill each gap and how many games each adds. Prices aren't shown: they change too often to keep right, so check the service's own site.
 
 While you tick services, `gainFrom()` shows how many more games each unticked service would add.
 
