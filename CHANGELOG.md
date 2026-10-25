@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- The Docker image runs on Node 26 (was 24). Installs without Docker still need Node 22 or newer, and CI now tests on both.
+
 ## [0.2.0] - 2026-10-25
 
 The first public release. The 0.2 line turns a single-household tool into a general open-source app. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
