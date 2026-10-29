@@ -88,6 +88,14 @@ Roku, Apple TV, Samsung and LG TVs, and the newest Vega OS Fire TV sticks, aren'
 
 TV rights change every season. Corrections and new services are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Works with Orbit (optional)
+
+[Orbit](https://github.com/jwizenfeld04/Orbit-Home) is a home screen for Fire TV and Android TV. With Sports Remote, Orbit's home screen shows a game line: tonight's games with live scores, your teams first. Pick one with the TV remote and Sports Remote opens it in the right app, the same as tapping it on your phone.
+
+The two talk through [Orbit-Helper](https://github.com/jwizenfeld04/Orbit-Helper), a small service on the same home server. It signs in to Sports Remote for the TV, so your PIN never goes to the TV. The Orbit-Helper README covers the setup.
+
+Sports Remote doesn't need Orbit: everything above works on its own.
+
 ## Project structure
 
 ```
