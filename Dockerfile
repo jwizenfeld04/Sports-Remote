@@ -13,7 +13,7 @@
 
 # ---- build: UI (vite) + server (esbuild). Output is plain JS, so this stage runs on the build
 # machine's own architecture even for cross-arch builds (no QEMU for the slow part).
-FROM --platform=$BUILDPLATFORM node:26-trixie-slim@sha256:36793bcbb160a6a16cede1e62b93f84e26b78a972a8a4c0b879c1c12f22761ec AS build
+FROM --platform=$BUILDPLATFORM node:26-trixie-slim@sha256:e4db4c914bf8ad241bd24804fc25d272d89bad97e68cdc8a1414862790a02c39 AS build
 WORKDIR /src
 COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund
@@ -21,13 +21,13 @@ COPY . .
 RUN npm run build
 
 # ---- prod-deps: runtime node_modules only, installed for the target architecture.
-FROM node:26-trixie-slim@sha256:36793bcbb160a6a16cede1e62b93f84e26b78a972a8a4c0b879c1c12f22761ec AS prod-deps
+FROM node:26-trixie-slim@sha256:e4db4c914bf8ad241bd24804fc25d272d89bad97e68cdc8a1414862790a02c39 AS prod-deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci --omit=dev --ignore-scripts --no-audit --no-fund
 
 # ---- runtime
-FROM node:26-trixie-slim@sha256:36793bcbb160a6a16cede1e62b93f84e26b78a972a8a4c0b879c1c12f22761ec AS runtime
+FROM node:26-trixie-slim@sha256:e4db4c914bf8ad241bd24804fc25d272d89bad97e68cdc8a1414862790a02c39 AS runtime
 ARG VERSION=dev
 LABEL org.opencontainers.image.title="Sports Remote" \
       org.opencontainers.image.description="Tap a live game on your phone; it opens on your Fire TV or Google TV in the right app." \
