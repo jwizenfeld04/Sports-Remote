@@ -19,7 +19,7 @@
     "test:e2e": "vite build && playwright test"
   },
   "dependencies": {
-    "@fastify/static": "10.1.7",
+    "@fastify/static": "10.1.8",
     "fastify": "5.12.7",
     "multicast-dns": "7.2.5",
     "zod": "4.6.7"
